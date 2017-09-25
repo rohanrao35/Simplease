@@ -1,21 +1,34 @@
 var mongoose = require("mongoose");
 
-var BrotherSchema = new mongoose.Schema({
-    firstName: String,
-    lastName: String,
-    email: String,
-    phone: Number,
-    minutesLeft: Number,
-    admin: Boolean,
-    owner: {
-        id: {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "User"
-        },
-        username: String
-    }
-
-    //TODO: Add committees that the brother is in as well
+var BuildingSchema = new mongoose.Schema({
+    name: String,
+    address: String,
+    coordinates: {
+      lat: Number;
+      lang: Number;
+    },
+    company_id: {
+      id: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Company"
+      },
+      name: String
+    },
+    units: [
+      {
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "Unit"
+      }
+    ],
+    forum: [
+      {
+         type: mongoose.Schema.Types.ObjectId,
+         ref: "Forum"
+      }
+    ],
+    num_free: Number,
+    num_occuppied: Number,
+    num_total_units: Number,
 });
 
-module.exports = mongoose.model("Brother", BrotherSchema);  
+module.exports = mongoose.model("Building", BuildingSchema);
