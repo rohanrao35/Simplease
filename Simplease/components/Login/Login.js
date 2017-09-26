@@ -19,11 +19,15 @@ export default class Login extends Component {
           <TextInput
             placeholder='Username'
 
+            // value=this.state.text
+
             style={styles.input}
           />
           <TextInput
             placeholder='Password'
 
+          // value=this.state.text
+            
             style={styles.input}
           />
           <View style={{margin:50}} />
