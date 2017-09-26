@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 
 
 //import LoginInput from './LoginInput.js'
@@ -10,52 +10,91 @@ export default class Login extends Component {
 
     return (
 
-      <View style={styles.container}>
+      <KeyboardAvoidingView behavior="padding" style={styles.container}>
+
           <Text style={{alignItems: 'center'}}
 
               style={{fontSize: 40}}>
               Simplease
           </Text>
+          <View>
           <TextInput
             placeholder='Username'
-
+            returnKeyType="next"
+            onSubmitEditing={() => this.passwordInput.focus()}
+            autoCapitalize="none"
+            autoCorrect={false}
             style={styles.input}
           />
           <TextInput
             placeholder='Password'
-
+            returnKeyType="go"
+            secureTextEntry
+            autoCapitalize="none"
+            autoCorrect={false}
             style={styles.input}
+            ref={(input) => this.passwordInput = input}
           />
-          <View style={{margin:50}} />
-          <Button style={styles.button}
-                  //onPress={this.props.onLoginPress}
-                  title="Login"
-              />
           </View>
+          <View style={{margin:0}} />
+
+          <TouchableOpacity style={styles.button}>
+
+                  <Text style={styles.buttonText}>LOGIN</Text>
+
+          </TouchableOpacity>
+
+          <Button
+              //onPress={this.props.onCreateAccountPress}
+              title="Create an account"
+          />
+          <Button
+              //onPress={this.props.onLoginPress}
+              title="Continue as guest"
+          />
 
 
+
+    </KeyboardAvoidingView>
     );
+
+    function onCreateAccountPress() {
+
+      <View>
+      <Text>HELLO</Text>
+      </View>
+    }
   }
 }
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 100,
-    paddingHorizontal: 0,
-    backgroundColor: '#3498db',
+    paddingVertical:270,
+    paddingHorizontal: 30,
+    backgroundColor: '#ecf0f1',
     width: 375,
-    height:667
+    height:667,
+    justifyContent: 'center',
+    //alignItems: 'center'
   },
 input: {
   height: 40,
-  //backgroundColor: '#95a5a6',
+  backgroundColor: '#bdc3c7',
   marginBottom: 20,
   paddingHorizontal: 10,
-  paddingVertical: 20,
-
+  //paddingVertical: 10,
+  color: '#ecf0f1'
 },
 button: {
-  marginBottom: 250,
-  backgroundColor: '#3498db'
+  paddingVertical: 30,
+  backgroundColor: '#3498db',
+  height: 20,
+  marginBottom: 50
+},
+buttonText: {
+  textAlign: 'center',
+  color: '#FFF',
+
 }
+
 });
