@@ -4,13 +4,16 @@ import { StyleSheet, Text, View } from 'react-native';
 import Login from './components/Login/Login'
 
 
+
 export default class App extends React.Component {
   render() {
     return (
+
       <View>
         <Login />
 
       </View>
+
     );
   }
 }

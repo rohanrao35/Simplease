@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
+
+
+// <Text style={{alignItems: 'center'}}
+//
+//     style={{fontSize: 40}}>
+//     Simplease
+// </Text>
 
 
 //import LoginInput from './LoginInput.js'
@@ -12,12 +19,14 @@ export default class Login extends Component {
 
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
 
-          <Text style={{alignItems: 'center'}}
 
-              style={{fontSize: 40}}>
-              Simplease
-          </Text>
-          <View>
+          <View style={styles.logoContainer}>
+
+              <Image
+                style={styles.logo}
+                source={require('../../Logo/d.png')}
+              />
+          </View>
           <TextInput
             placeholder='Username'
             returnKeyType="next"
@@ -35,7 +44,7 @@ export default class Login extends Component {
             style={styles.input}
             ref={(input) => this.passwordInput = input}
           />
-          </View>
+
           <View style={{margin:0}} />
 
           <TouchableOpacity style={styles.button}>
@@ -44,12 +53,10 @@ export default class Login extends Component {
 
           </TouchableOpacity>
 
-          <Button
-              //onPress={this.props.onCreateAccountPress}
+          <Button style={styles.otherButton}
               title="Create an account"
           />
-          <Button
-              //onPress={this.props.onLoginPress}
+          <Button style={styles.otherButton}
               title="Continue as guest"
           />
 
@@ -69,7 +76,7 @@ export default class Login extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical:270,
+    paddingVertical:0,
     paddingHorizontal: 30,
     backgroundColor: '#ecf0f1',
     width: 375,
@@ -89,12 +96,25 @@ button: {
   paddingVertical: 30,
   backgroundColor: '#3498db',
   height: 20,
-  marginBottom: 50
+  marginBottom: 0
 },
 buttonText: {
   textAlign: 'center',
   color: '#FFF',
 
+},
+logoContainer: {
+  alignItems: 'center',
+  flexGrow: 1,
+  justifyContent: 'center'
+},
+logo: {
+  paddingVertical: 20,
+  width: 400,
+  height: 300
+},
+otherButton: {
+  paddingVertical: 0
 }
 
 });
