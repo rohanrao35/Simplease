@@ -1,6 +1,7 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-var UnitSchema = new mongoose.Schema({
+const UnitSchema = new Schema({
 	unit_size: String,
 	num_beds: Number,
 	num_baths: Number,
@@ -17,4 +18,6 @@ var UnitSchema = new mongoose.Schema({
 	is_vacant: Boolean
 });
 
-module.exports = mongoose.model("Unit", BrotherSchema);  
+const UnitModel = mongoose.model('unit', UnitSchema);
+
+module.exports = UnitModel; 

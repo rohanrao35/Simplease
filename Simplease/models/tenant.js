@@ -1,6 +1,6 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var TenantSchema = new mongoose.Schema({
+const TenantSchema = new mongoose.Schema({
     level: Number,
     first_name: String,
     last_name: String,
@@ -13,4 +13,7 @@ var TenantSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model("Tenant", BrotherSchema);  
+const TenantModel = mongoose.model('tenant', TenantSchema);
+
+//module.exports = mongoose.model("Tenant", BrotherSchema);  
+module.exports = TenantModel;
