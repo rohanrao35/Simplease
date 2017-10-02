@@ -1,40 +1,26 @@
-import React, { Component } from 'react';
-import { AppRegistry, Text, View } from 'react-native';
-// added code from tutorial, testing integration with github
+import React from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 
-class Blink extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {showText: true};
+import Login from './components/Login/Login'
 
-    // Toggle the state every second
-    setInterval(() => {
-      this.setState(previousState => {
-        return { showText: !previousState.showText };
-      });
-    }, 1000);
-  }
 
-  render() {
-    let display = this.state.showText ? this.props.text : ' ';
-    return (
-      <Text>{display}</Text>
-    );
-  }
-}
-
-export default class BlinkApp extends Component {
+export default class App extends React.Component {
   render() {
     return (
       <View>
-        <Blink text='I love to blink' />
-        <Blink text='Yes blinking is so great' />
-        <Blink text='Why did they ever take this out of HTML' />
-        <Blink text='Look at me look at me look at me' />
+        <Login />
+
       </View>
     );
   }
 }
 
-// skip this line if using Create React Native App
-AppRegistry.registerComponent('AwesomeProject', () => BlinkApp);
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+});
