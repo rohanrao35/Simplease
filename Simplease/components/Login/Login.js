@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Button, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 
 
 //import LoginInput from './LoginInput.js'
