@@ -1,6 +1,9 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-var UnitSchema = new mongoose.Schema({
+// Create a schema and a model
+
+const UnitSchema = new Schema({
 	unit_size: String,
 	num_beds: Number,
 	num_baths: Number,
@@ -13,8 +16,10 @@ var UnitSchema = new mongoose.Schema({
 			type: mongoose.Schema.Types.ObjectId,
 			ref: "Tenant"
 		}
-	]
+	],
 	is_vacant: Boolean
 });
 
-module.exports = mongoose.model("Unit", BrotherSchema);  
+const Unit = mongoose.model('unit', UnitSchema);
+
+module.exports = Unit; 

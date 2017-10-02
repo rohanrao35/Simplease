@@ -13,13 +13,20 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js --watch",
+    "testing-save": "mocha --timeout 15000"
   },
   "jest": {
     "preset": "jest-expo"
   },
   "dependencies": {
+<<<<<<< HEAD
     "expo": "^21.0.0",
+=======
+    "expo": "^20.0.0",
+    "mocha": "^3.5.3",
+    "mongoose": "^4.11.14",
+>>>>>>> origin/master
     "react": "16.0.0-alpha.12",
     "react-native": "https://github.com/expo/react-native/archive/sdk-21.0.2.tar.gz",
     "react-native-form-generator": "^0.9.9",
