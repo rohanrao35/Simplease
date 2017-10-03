@@ -1,6 +1,7 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
-var BuildingSchema = new mongoose.Schema({
+const BuildingSchema = new mongoose.Schema({
     name: String,
     address: String,
     coordinates: {
@@ -31,4 +32,5 @@ var BuildingSchema = new mongoose.Schema({
     num_total_units: Number,
 });
 
-module.exports = mongoose.model("Building", BuildingSchema);
+const Building = mongoose.model("Building", BuildingSchema);
+module.exports = Building;
