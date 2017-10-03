@@ -12,10 +12,8 @@ export default class CreateAccount extends Component {
 
     return (
 
-        
-
-        
-
+      <ScrollView>
+      
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
 
           <Text style={{alignItems: 'center'}}
@@ -64,16 +62,14 @@ export default class CreateAccount extends Component {
           <TextInput
             placeholder='E-mail'
 
-
-            onChangeText={(text) => this.validateEmail}
-            //value={this.state.email}
-
-          // value=this.state.text
+            
             
             returnKeyType="go"
             autoCapitalize="none"
             autoCorrect={false}
             style={styles.input}
+            onChangeText={(text) => this.validate(text)}
+            // value={this.state.email}
 
           />
 
@@ -116,29 +112,47 @@ export default class CreateAccount extends Component {
 
 
     </KeyboardAvoidingView>
+
+    </ScrollView>
     );
 
    
 
-    function validateEmail() {
-      if (validator.validate(text)) {
+    // function validateEmail() {
+    //   this.style={styles:error}
+    //   if (validator.validate(text)) {
             
-      }
+    //   }
+    //   else {
+    //     style={styles:error}
+       
+
+    //   }
+
+    // }
+    validate = (text) => {
+      console.log(text);
+      let reg = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+      if(reg.test(text) === false)
+      {
+      console.log("Email is Not Correct");
+      this.setState({email:text})
+      return false;
+        }
       else {
-        style={styles:error}
-        console.log("invalid")
-
+        this.setState({email:text})
+        console.log("Email is Correct");
       }
-
-    }
+    } 
   }
 }
+
 
 const styles = StyleSheet.create({
   container: {
     paddingVertical:20,
     paddingHorizontal: 30,
-    backgroundColor: '#ecf0f1',
+    //backgroundColor: '#ecf0f1',
     width: 375,
     height:667,
     justifyContent: 'center',
@@ -164,6 +178,10 @@ buttonText: {
 
 },
 error: {
-backgroundColor: '#ff0000'
+  backgroundColor: '#ff0000',
+  height: 40,
+  marginBottom: 20,
+  paddingHorizontal: 10,
+  color: '#ecf0f1'
 }
 });
