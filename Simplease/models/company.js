@@ -1,11 +1,11 @@
-var mongoose = require("mongoose");
+const mongoose = require("mongoose");
 
-var CompanySchema = new mongoose.Schema({
+const CompanySchema = new mongoose.Schema({
 	Name: String;
 	employee:[ //employee array
 		{
 		type:mongoose.Schema.Types.ObjectID,
-		ref: "Employee" 
+		ref: "Employee"
 		}
 	]
 	building:[
@@ -16,4 +16,5 @@ var CompanySchema = new mongoose.Schema({
 	]
 });
 
-module.exports = mongoose.model("Company", CompanySchema);
+const Company = mongoose.model("Company", CompanySchema);
+module.exports = Company;

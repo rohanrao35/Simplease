@@ -1,5 +1,16 @@
-import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
+import React, {
+  Component
+} from 'react';
+import {
+  View,
+  StyleSheet,
+  Text,
+  TextInput,
+  Button,
+  ScrollView,
+  KeyboardAvoidingView,
+  TouchableOpacity
+} from 'react-native';
 
 
 //import LoginInput from './LoginInput.js'
@@ -33,7 +44,7 @@ export default class Login extends Component {
             placeholder='Password'
 
           // value=this.state.text
-            
+
             returnKeyType="go"
             secureTextEntry
             autoCapitalize="none"
