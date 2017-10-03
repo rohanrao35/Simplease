@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoidingView, TouchableOpacity, Image } from 'react-native';
+import { View, StyleSheet, Text, TextInput, Button, KeyboardAvoidingView, TouchableOpacity, Image, ScrollView, Alert } from 'react-native';
 
 
 // <Text style={{alignItems: 'center'}}
@@ -9,9 +9,34 @@ import { View, StyleSheet, Text, TextInput, Button, ScrollView, KeyboardAvoiding
 // </Text>
 
 
+// <Image
+//   style={styles.logo}
+//   source={require('../../Logo/d.png')}
+// />
+
+import CreateAccount from '../CreateAccount/CreateAccount.js'
 //import LoginInput from './LoginInput.js'
 //<View style={{width: 375, height: 670, backgroundColor: 'skyblue'}} />
 export default class Login extends Component {
+
+  constructor(props) {
+   super(props);
+   this.state = {
+     username: '',
+     password: ''
+   };
+   this._onGuestButton = this._onGuestButton.bind(this)
+ }
+
+ _onGuestButton() {
+   Alert.alert('You are a guest!')
+ }
+ _onCreateAccountButton() {
+	  Alert.alert("HI")
+ }
+ _onLoginButton() {
+   Alert.alert("Username & Password")
+ }
 
   render(){
 
@@ -21,11 +46,11 @@ export default class Login extends Component {
 
 
           <View style={styles.logoContainer}>
-
-              <Image
-                style={styles.logo}
-                source={require('../../Logo/d.png')}
+            <Image
+              style={styles.logo}
+              source={require('../../Logo/d.png')}
               />
+
           </View>
           <TextInput
             placeholder='Username'
@@ -34,6 +59,8 @@ export default class Login extends Component {
             autoCapitalize="none"
             autoCorrect={false}
             style={styles.input}
+
+            onChangeText={(username) => this.setState({username})}
           />
           <TextInput
             placeholder='Password'
@@ -43,20 +70,25 @@ export default class Login extends Component {
             autoCorrect={false}
             style={styles.input}
             ref={(input) => this.passwordInput = input}
+
+            onChangeText2={(password) => this.setState({password})}
           />
 
           <View style={{margin:0}} />
 
-          <TouchableOpacity style={styles.button}>
+          <TouchableOpacity style={styles.button}  onPress={this._onLoginButton}>
 
                   <Text style={styles.buttonText}>LOGIN</Text>
 
           </TouchableOpacity>
 
           <Button style={styles.otherButton}
+
+              onPress={this._onCreateAccountButton}
               title="Create an account"
           />
           <Button style={styles.otherButton}
+              onPress={this._onGuestButton}
               title="Continue as guest"
           />
 
@@ -64,13 +96,6 @@ export default class Login extends Component {
 
     </KeyboardAvoidingView>
     );
-
-    function onCreateAccountPress() {
-
-      <View>
-      <Text>HELLO</Text>
-      </View>
-    }
   }
 }
 
