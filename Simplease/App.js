@@ -2,6 +2,7 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
 import Login from './components/Login/Login'
+import CreateAccount from './components/CreateAccount/CreateAccount'
 
 
 
@@ -10,7 +11,7 @@ export default class App extends React.Component {
     return (
 
       <View>
-        <Login />
+        <CreateAccount />
 
       </View>
 

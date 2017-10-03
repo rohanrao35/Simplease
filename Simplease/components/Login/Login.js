@@ -1,5 +1,8 @@
+
 import React, { Component } from 'react';
+
 import { View, StyleSheet, Text, TextInput, Button, KeyboardAvoidingView, TouchableOpacity, Image, ScrollView, Alert } from 'react-native';
+
 
 
 // <Text style={{alignItems: 'center'}}
@@ -45,6 +48,7 @@ export default class Login extends Component {
       <KeyboardAvoidingView behavior="padding" style={styles.container}>
 
 
+
           <View style={styles.logoContainer}>
             <Image
               style={styles.logo}
@@ -54,6 +58,20 @@ export default class Login extends Component {
           </View>
           <TextInput
             placeholder='Username'
+
+
+          <Text style={{alignItems: 'center'}}
+
+              style={{fontSize: 40}}>
+              Simplease
+          </Text>
+          <View>
+          <TextInput
+            placeholder='Username'
+
+            // value=this.state.text
+
+
             returnKeyType="next"
             onSubmitEditing={() => this.passwordInput.focus()}
             autoCapitalize="none"
@@ -64,6 +82,10 @@ export default class Login extends Component {
           />
           <TextInput
             placeholder='Password'
+
+
+          // value=this.state.text
+
             returnKeyType="go"
             secureTextEntry
             autoCapitalize="none"
@@ -71,7 +93,26 @@ export default class Login extends Component {
             style={styles.input}
             ref={(input) => this.passwordInput = input}
 
+
             onChangeText2={(password) => this.setState({password})}
+          />
+
+          </View>
+          <View style={{margin:0}} />
+
+          <TouchableOpacity style={styles.button}>
+
+                  <Text style={styles.buttonText}>LOGIN</Text>
+
+          </TouchableOpacity>
+
+          <Button
+              //onPress={this.props.onCreateAccountPress}
+              title="Create an account"
+          />
+          <Button
+              //onPress={this.props.onLoginPress}
+              title="Continue as guest"
           />
 
           <View style={{margin:0}} />
@@ -79,6 +120,7 @@ export default class Login extends Component {
           <TouchableOpacity style={styles.button}  onPress={this._onLoginButton}>
 
                   <Text style={styles.buttonText}>LOGIN</Text>
+
 
           </TouchableOpacity>
 
@@ -94,14 +136,24 @@ export default class Login extends Component {
 
 
 
+
     </KeyboardAvoidingView>
     );
+
+    function onCreateAccountPress() {
+
+      <View>
+      <Text>HELLO</Text>
+      </View>
+    }
   }
 }
 
 const styles = StyleSheet.create({
   container: {
+
     paddingVertical:0,
+
     paddingHorizontal: 30,
     backgroundColor: '#ecf0f1',
     width: 375,
@@ -122,10 +174,12 @@ button: {
   backgroundColor: '#3498db',
   height: 20,
   marginBottom: 0
+
 },
 buttonText: {
   textAlign: 'center',
   color: '#FFF',
+
 
 },
 logoContainer: {
@@ -140,6 +194,7 @@ logo: {
 },
 otherButton: {
   paddingVertical: 0
+
 }
 
 });
